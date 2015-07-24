@@ -11,6 +11,9 @@ X = cbind(x1, x2, x3)
 Y = cbind(y1, y2, y3)
 Z = rbind(X, Y)
 names(Z) = c(as.character(nom[, 2]), "subject", "activity")
-Z.mean.std = Z[, grepl("mean()", names(Z)) |  grepl("std()", names(Z))]
 Z = mutate(Z, activity = factor(activity, levels = activities[, 1], labels = activities[, 2]))
-Z[, 563]
+mean.std = Z[, grepl("mean()", names(Z)) |  grepl("std()", names(Z))]
+Z = c(mean.std, Z[, 562:563])
+
+names(Z) = gsub("\\(|\\)|-", "", names(Z))
+names(Z) = gsub("", "", names(Z))
