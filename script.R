@@ -1,6 +1,16 @@
-library(data.table)
-X = read.table("UCI HAR Dataset/test/X_test.txt", quote = " ")
-readLines("UCI HAR Dataset/test/y_test.txt")
-
-
-t
+library(plyr)
+nom = read.table("UCI HAR Dataset/features.txt", quote = " ")
+activities = read.table("UCI HAR Dataset/activity_labels.txt", quote = " ")
+x1 = read.table("UCI HAR Dataset/test/X_test.txt", quote = " ")
+x2 = read.table("UCI HAR Dataset/test/subject_test.txt")
+x3 = read.table("UCI HAR Dataset/test/y_test.txt")
+y1 = read.table("UCI HAR Dataset/train/X_train.txt", quote = " ")
+y2 = read.table("UCI HAR Dataset/train/subject_train.txt", quote = " ")
+y3 = read.table("UCI HAR Dataset/train/y_train.txt", quote = " ")
+X = cbind(x1, x2, x3)
+Y = cbind(y1, y2, y3)
+Z = rbind(X, Y)
+names(Z) = c(as.character(nom[, 2]), "subject", "activity")
+Z.mean.std = Z[, grepl("mean()", names(Z)) |  grepl("std()", names(Z))]
+Z = mutate(Z, activity = factor(activity, levels = activities[, 1], labels = activities[, 2]))
+Z[, 563]
