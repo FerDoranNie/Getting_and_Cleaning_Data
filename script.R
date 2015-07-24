@@ -12,8 +12,24 @@ Y = cbind(y1, y2, y3)
 Z = rbind(X, Y)
 names(Z) = c(as.character(nom[, 2]), "subject", "activity")
 Z = mutate(Z, activity = factor(activity, levels = activities[, 1], labels = activities[, 2]))
-mean.std = Z[, grepl("mean()", names(Z)) |  grepl("std()", names(Z))]
+mean.std = Z[, grepl("mean\\(", names(Z)) |  grepl("std\\(", names(Z))]
 Z = c(mean.std, Z[, 562:563])
+# respaldo = names(Z)
+names(Z) = respaldo
 
+names(Z) = gsub("Acc", ".Accelerometer", names(Z))
+names(Z) = gsub("Gyro", ".Gyroscope", names(Z))
+names(Z) = gsub("Body", ".Body", names(Z))
+names(Z) = gsub("Gravity", ".Gravity", names(Z))
+names(Z) = gsub("-mean", ".Mean", names(Z))
+names(Z) = gsub("std", ".Standard.deviation", names(Z))
 names(Z) = gsub("\\(|\\)|-", "", names(Z))
-names(Z) = gsub("", "", names(Z))
+names(Z) = gsub("t[.]", "Time.", names(Z))
+names(Z) = gsub("f[.]", "Frequency.", names(Z))
+names(Z) = gsub("Mag", ".Magnitude", names(Z))
+names(Z) = gsub("X", ".on.X", names(Z))
+names(Z) = gsub("Y", ".on.Y", names(Z))
+names(Z) = gsub("Z", ".on.Z", names(Z))
+names(Z) = gsub("Jerk", ".Jerk", names(Z))
+names(Z)
+
