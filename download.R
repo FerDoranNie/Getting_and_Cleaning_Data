@@ -1,4 +1,0 @@
-# Download and unzip data
-download.file(url = "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",
-              destfile = "courseraproj.zip", method = "curl")
-unzip("courseraproj.zip")

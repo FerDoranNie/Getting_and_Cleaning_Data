@@ -7,6 +7,11 @@ Repos: CRAN=http://cran.itam.mx/,
     BioCexp=http://bioconductor.org/packages/3.2/data/experiment,
     BioCextra=http://bioconductor.org/packages/3.2/extra
 
+Package: BH
+Source: CRAN
+Version: 1.58.0-1
+Hash: 4f6db3b5311bb006f536a2e67278d058
+
 Package: DBI
 Source: CRAN
 Version: 0.3.1
@@ -37,6 +42,12 @@ Source: CRAN
 Version: 1.9.4
 Hash: b89234fb0b26ff6f53399cb5359d71a1
 Requires: chron, reshape2
+
+Package: dplyr
+Source: CRAN
+Version: 0.4.2
+Hash: 836b8d0eab1b3038ece1ab5d179b6d0f
+Requires: BH, DBI, R6, Rcpp, assertthat, lazyeval, magrittr
 
 Package: lazyeval
 Source: CRAN
