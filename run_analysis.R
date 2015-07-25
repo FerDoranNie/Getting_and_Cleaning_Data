@@ -12,7 +12,8 @@
 #
 # I think that the cleaning data process is very flexible and is not esential to
 # follow the steps in a strict order. So I this code does every single step
-# requested but in different order.
+# requested but in different order. Also I have included a packrat library and a
+# Rproject file to enhace reproducibility.
 #
 # Finally, I am very enthusiastic for your comments on the code. I'd really
 # appreciate some advice to avoid creating dummy variables.
